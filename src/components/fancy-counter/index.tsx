@@ -29,7 +29,7 @@ export const LazyCounter = lazy(() =>
       })
 
       customElements.define(
-        'styled-counter',
+        'styled-fancy-counter',
         class extends HTMLElement {
           constructor() {
             super()
@@ -56,14 +56,14 @@ export const LazyCounter = lazy(() =>
         useLayoutEffect(() => propagate(ref.current?.shadowRoot as ShadowRoot), [])
 
         return (
-          <styled-counter exportparts="container, label, hits, skin" ref={ref}>
+          <styled-fancy-counter ref={ref}>
             {createPortal(
               <ErrorBoundary FallbackComponent={FallbackComponent}>
                 <Render {...props} />
               </ErrorBoundary>,
               container,
             )}
-          </styled-counter>
+          </styled-fancy-counter>
         )
       }
 
